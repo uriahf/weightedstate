@@ -30,7 +30,7 @@ jobs:
       - name: Clean any leftover Quarto publish worktree
         run: rm -rf .quarto
 
-      - name: Render and Publish
+      - name: Quartodoc Build
         working-directory: docs
         run: uv run quartodoc build
 
