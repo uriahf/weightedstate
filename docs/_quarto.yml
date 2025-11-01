@@ -1,0 +1,20 @@
+project:
+  type: website
+
+metadata-files:
+  - reference/_sidebar.yml
+
+format:
+  html:
+    css:
+      - reference/_styles-quartodoc.css
+
+quartodoc:
+  package: weightedstate
+
+  sidebar: reference/_sidebar.yml
+  css: reference/_styles-quartodoc.css
+
+  sections:
+    - title: Some functions
+      desc: Functions to inspect docstrings.
