@@ -32,6 +32,10 @@ jobs:
 
       - name: Render and Publish
         working-directory: docs
+        run: uv run quartodoc build
+
+      - name: Render and Publish
+        working-directory: docs
         run: uv run quarto publish gh-pages --no-browser --token "${{ secrets.GITHUB_TOKEN }}"
 
       - name: publish package
