@@ -22,6 +22,7 @@ build-backend = "uv_build"
 dev = [
     "marimo>=0.17.6",
     "polars>=1.35.1",
+    "pre-commit>=4.3.0",
     "quartodoc>=0.11.1",
     "ruff>=0.14.3",
     "ty>=0.0.1a25",
