@@ -1,20 +1,21 @@
 project:
   type: website
+  output-dir: _site
 
-metadata-files:
-  - reference/_sidebar.yml
-
-format:
-  html:
-    css:
-      - reference/_styles-quartodoc.css
+website:
+  title: "weightedstate"
+  sidebar:
+    - id: "reference"
+      title: "API Reference"
+      style: "docked"
+      contents:
+        - "reference/index.qmd"
+        - "reference/weightedstate.qmd"
 
 quartodoc:
   package: weightedstate
-
-  sidebar: reference/_sidebar.yml
-  css: reference/_styles-quartodoc.css
-
   sections:
-    - title: Some functions
-      desc: Functions to inspect docstrings.
+    - title: "Core Functions"
+      desc: "Functions for weighted event prediction."
+      contents:
+        - weightedstate.survival.weighted_aalen_johansen
