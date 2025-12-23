@@ -1,29 +1,38 @@
 [project]
 name = "weightedstate"
 version = "0.1.0"
-description = "Add your description here"
+description = "A package for weighted event prediction."
 readme = "README.md"
 authors = [
     { name = "Uriah Finkel", email = "ufinkel@gmail.com" }
 ]
-requires-python = ">=3.13"
+requires-python = ">=3.9"
 dependencies = [
-    "polars>=1.35.1",
+    "polars>=1.30.0",
 ]
 
-[project.scripts]
-weightedstate = "weightedstate:main"
-
 [build-system]
-requires = ["uv_build>=0.9.6,<0.10.0"]
+requires = ["uv_build>=0.7.20,<0.8.0"]
 build-backend = "uv_build"
+
+[tool.ruff]
+line-length = 88
+indent-width = 4
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_functions = "test_*"
 
 [dependency-groups]
 dev = [
-    "marimo>=0.17.6",
-    "polars>=1.35.1",
-    "pre-commit>=4.3.0",
-    "quartodoc>=0.11.1",
-    "ruff>=0.14.3",
-    "ty>=0.0.1a25",
+    "quartodoc>=0.10.0",
+    "ruff>=0.11.11",
+    "ty>=0.0.1a14",
+    "uv>=0.7.13",
+    "pytest>=8.3.5",
+    "pre-commit>=4.2.0",
 ]
