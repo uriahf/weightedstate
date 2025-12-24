@@ -18,4 +18,4 @@ quartodoc:
     - title: "Core Functions"
       desc: "Functions for weighted event prediction."
       contents:
-        - weightedstate.survival.weighted_aalen_johansen
+        - survival.weighted_aalen_johansen
