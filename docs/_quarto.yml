@@ -5,12 +5,30 @@ project:
 website:
   title: "weightedstate"
   sidebar:
-    - id: "reference"
-      title: "API Reference"
+    - title: "weightedstate"
       style: "docked"
       contents:
-        - "reference/index.qmd"
-        - "reference/weightedstate.qmd"
+        - href: index.qmd
+          text: "Get started"
+        - href: estimation.qmd
+          text: "Estimation framework"
+        - href: examples.qmd
+          text: "Examples"
+        - href: literature.qmd
+          text: "Relation to literature"
+        - href: references.qmd
+          text: "References"
+        - text: "---"
+        - section: "API Reference"
+          contents:
+            - reference/index.qmd
+            - reference/weightedstate.qmd
+
+format:
+  html:
+    theme:
+      light: cosmo
+    css: custom.scss
 
 quartodoc:
   package: weightedstate

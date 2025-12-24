@@ -1,0 +1,35 @@
+---
+title: "Examples"
+---
+
+### Single-event setting
+
+This example demonstrates how to use `weighted_aalen_johansen` to perform a weighted survival estimation. The results coincide with a weighted Kaplan–Meier estimator.
+
+```python
+import polars as pl
+from weightedstate.survival import weighted_aalen_johansen
+
+times = pl.Series([1, 2, 3, 4, 5])
+reals = pl.Series([1, 0, 1, 1, 0])
+weights = pl.Series([0.5, 1.5, 0.8, 1.2, 0.9])
+
+result = weighted_aalen_johansen(times, reals, weights)
+print(result)
+```
+
+### Competing risks setting
+
+This example shows how to use the function for a weighted cumulative incidence estimation in a competing risks setting.
+
+```python
+import polars as pl
+from weightedstate.survival import weighted_aalen_johansen
+
+times = pl.Series([1, 2, 3, 4, 5])
+reals = pl.Series([1, 0, 1, 2, 0])
+weights = pl.Series([0.5, 1.5, 0.8, 1.2, 0.9])
+
+result = weighted_aalen_johansen(times, reals, weights)
+print(result)
+```

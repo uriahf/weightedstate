@@ -1,0 +1,13 @@
+---
+title: "Estimation framework"
+---
+
+The Aalen–Johansen estimator is a non-parametric method for estimating transition probabilities in a multistate model. It can be expressed as a product-integral of the cumulative hazard increments, which are estimated using a non-parametric equivalent of a Nelson–Aalen estimator.
+
+The introduction of weights into this framework is straightforward. The weighted Aalen–Johansen estimator is calculated in the same way as the unweighted version, but with the risk sets and event counts adjusted by the provided weights. Specifically, at each event time, the number of individuals at risk and the number of events are replaced by the sum of their corresponding weights.
+
+### Kaplan–Meier as a special case
+
+The Kaplan–Meier estimator, used for estimating the survival function in single-event survival analysis, is a special case of the Aalen–Johansen estimator. This equivalence holds when the multistate model has only two states: an initial state and an absorbing event state.
+
+When weights are introduced, this relationship is preserved. A weighted Kaplan–Meier estimator is the two-state special case of the weighted Aalen–Johansen estimator.
