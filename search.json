@@ -1,20 +1,55 @@
 [
   {
+    "objectID": "reference/survival.weighted_aalen_johansen.html",
+    "href": "reference/survival.weighted_aalen_johansen.html",
+    "title": "survival.weighted_aalen_johansen",
+    "section": "",
+    "text": "survival.weighted_aalen_johansen\nsurvival.weighted_aalen_johansen(times, reals, weights)\nCalculates the weighted Aalen-Johansen estimate for time-to-event data.\nThis function computes the probability of an event occurring over time, with support for weights. It can handle single events (like in Kaplan-Meier), or competing events (like in CIF).\nArgs: times: A Polars Series containing the event times. reals: A Polars Series containing the event types (0 for censored, 1 for event of interest, 2 for competing event). weights: A Polars Series containing the weights for each observation.\nReturns: A Polars DataFrame containing the weighted Aalen-Johansen estimate."
+  },
+  {
+    "objectID": "tutorial.html",
+    "href": "tutorial.html",
+    "title": "Tutorial",
+    "section": "",
+    "text": "This tutorial demonstrates how to use the weighted_aalen_johansen function to perform weighted event prediction."
+  },
+  {
+    "objectID": "tutorial.html#basic-usage",
+    "href": "tutorial.html#basic-usage",
+    "title": "Tutorial",
+    "section": "Basic Usage",
+    "text": "Basic Usage\nFirst, let’s import the necessary libraries:\nimport polars as pl\nfrom weightedstate.survival import weighted_aalen_johansen\nNow, let’s create some sample data:\ntimes = pl.Series([1, 2, 3, 4, 5])\nreals = pl.Series([1, 0, 1, 2, 0])\nweights = pl.Series([1.0, 1.0, 1.0, 1.0, 1.0])\nWe can now call the weighted_aalen_johansen function with this data:\nresult = weighted_aalen_johansen(times, reals, weights)\nprint(result)"
+  },
+  {
+    "objectID": "tutorial.html#kaplan-meier-estimation",
+    "href": "tutorial.html#kaplan-meier-estimation",
+    "title": "Tutorial",
+    "section": "Kaplan-Meier Estimation",
+    "text": "Kaplan-Meier Estimation\nTo perform a Kaplan-Meier estimation, we simply need to ensure that there are no competing events (i.e., reals does not contain the value 2):\nreals_km = pl.Series([1, 0, 1, 1, 0])\nresult_km = weighted_aalen_johansen(times, reals_km, weights)\nprint(result_km)"
+  },
+  {
+    "objectID": "tutorial.html#weighted-estimation",
+    "href": "tutorial.html#weighted-estimation",
+    "title": "Tutorial",
+    "section": "Weighted Estimation",
+    "text": "Weighted Estimation\nThe function also supports weighted estimations. Let’s create a new set of weights and see how it affects the result:\nweights_weighted = pl.Series([0.5, 1.5, 0.8, 1.2, 0.9])\nresult_weighted = weighted_aalen_johansen(times, reals, weights_weighted)\nprint(result_weighted)"
+  },
+  {
     "objectID": "reference/index.html",
     "href": "reference/index.html",
     "title": "Function reference",
     "section": "",
-    "text": "Functions to inspect docstrings.",
+    "text": "Functions for weighted event prediction.\n\n\n\nsurvival.weighted_aalen_johansen\nCalculates the weighted Aalen-Johansen estimate for time-to-event data.",
     "crumbs": [
       "Function reference"
     ]
   },
   {
-    "objectID": "reference/index.html#some-functions",
-    "href": "reference/index.html#some-functions",
+    "objectID": "reference/index.html#core-functions",
+    "href": "reference/index.html#core-functions",
     "title": "Function reference",
     "section": "",
-    "text": "Functions to inspect docstrings.",
+    "text": "Functions for weighted event prediction.\n\n\n\nsurvival.weighted_aalen_johansen\nCalculates the weighted Aalen-Johansen estimate for time-to-event data.",
     "crumbs": [
       "Function reference"
     ]

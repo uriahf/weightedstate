@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://uriahf.github.io/weightedstate/reference/survival.weighted_aalen_johansen.html</loc>
+    <lastmod>2025-12-24T16:42:31.032Z</lastmod>
+  </url>
+  <url>
+    <loc>https://uriahf.github.io/weightedstate/tutorial.html</loc>
+    <lastmod>2025-12-24T16:42:11.617Z</lastmod>
+  </url>
+  <url>
     <loc>https://uriahf.github.io/weightedstate/reference/index.html</loc>
-    <lastmod>2025-11-01T11:57:12.927Z</lastmod>
+    <lastmod>2025-12-24T16:42:31.014Z</lastmod>
   </url>
 </urlset>
