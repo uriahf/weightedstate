@@ -1,0 +1,9 @@
+---
+title: "Relation to existing literature"
+---
+
+The terminology and methods used in `weightedstate` are consistent with established literature on survival and multistate analysis.
+
+The weighted Kaplan–Meier estimator has been described in various contexts, including inverse-probability weighting for causal inference. Keogh & Van Geloven (2024) discuss the use of weighted Kaplan–Meier after artificial censoring, which is a specific application of the general weighted estimator implemented here. In the single-event setting, the weighted Aalen–Johansen estimator in `weightedstate` is equivalent to this weighted Kaplan–Meier estimator.
+
+Standard survival analysis texts establish the Aalen–Johansen estimator as the multistate generalization of the Kaplan–Meier estimator. The introduction of weights, as implemented in `weightedstate`, follows the principles of weighted Nelson–Aalen and product-limit estimators, where weights are incorporated into the risk sets and event counts.

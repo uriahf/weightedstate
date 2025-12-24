@@ -1,0 +1,40 @@
+/* Custom SCSS for weightedstate documentation */
+
+// Fonts from rtichoke_python & pseudostate
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto+Mono&display=swap');
+
+// Variables
+$font-family-sans-serif: "Lato", sans-serif;
+$font-family-monospace: "Roboto Mono", monospace;
+$primary-color: #007bff; // A clean, modern blue
+
+// General styling
+body {
+  font-family: $font-family-sans-serif;
+  color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Code blocks
+pre, code {
+  font-family: $font-family-monospace;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+}
+
+// Sidebar
+.sidebar {
+  background-color: #f8f9fa;
+}
