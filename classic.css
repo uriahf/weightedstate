@@ -1,26 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Lato:wght@400;700&display=swap");
+
 @font-face {
-  font-family: "Fraunces Local";
-  src: url("assets/fonts/Fraunces9pt-Light.woff2") format("woff2");
+  font-family: "Fraunces9pt-Light";
   font-style: normal;
-  font-weight: 300 700;
+  font-weight: 700;
   font-display: swap;
+  src: url("assets/fonts/Fraunces9pt-Light.woff2") format("woff2");
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Open+Sans:wght@400;600;700&display=swap");
-
 :root {
-  --ws-bg: #f7fbfc;
-  --ws-ink: #3a4750;
-  --ws-midnight: #1a1d23;
-  --ws-blue: #527f91;
+  --ws-white: #f7fbfc;
+  --ws-ink: #1a1d23;
+  --ws-blue: #3a6678;
+  --ws-link: #527f91;
   --ws-wash: #e8f4f8;
   --ws-line: #c7d9e1;
 }
 
 body {
-  background: var(--ws-bg);
+  background: var(--ws-white);
   color: var(--ws-ink);
-  font-family: "Open Sans", system-ui, sans-serif;
+  font-family: "Lato", system-ui, sans-serif;
 }
 
 .homepage-logo {
@@ -33,30 +33,34 @@ body {
 
 h1, h2, h3, h4, h5, h6,
 .navbar-brand, .quarto-title-block .title, .sidebar-title {
-  color: var(--ws-midnight);
-  font-family: "Fraunces Local", Fraunces, Georgia, serif;
-  font-weight: 300;
+  color: var(--ws-blue);
+  font-family: "Fraunces9pt-Light", "Fraunces", Georgia, serif;
+  font-weight: 700;
   line-height: 1.2;
 }
 
 a {
-  color: var(--ws-blue);
+  color: var(--ws-link);
   text-decoration-color: rgba(82, 127, 145, 0.35);
   text-underline-offset: 0.14em;
 }
 
 .navbar, .navbar-dark, .navbar-light {
-  background: var(--ws-bg) !important;
+  background: var(--ws-white) !important;
   border-bottom: 1px solid var(--ws-line);
   box-shadow: none;
 }
 
 .navbar-brand, .navbar .nav-link, .navbar .navbar-title {
-  color: var(--ws-midnight) !important;
+  color: var(--ws-blue) !important;
+}
+
+.navbar .nav-link:hover, .navbar .nav-link.active {
+  color: var(--ws-link) !important;
 }
 
 #quarto-sidebar, .sidebar, .quarto-secondary-nav {
-  background: var(--ws-bg);
+  background: var(--ws-white);
   border-color: var(--ws-line);
 }
 
@@ -64,7 +68,7 @@ a {
 .sidebar-item a:hover, .sidebar-item a.active,
 .sidebar-navigation a:hover, .sidebar-navigation a.active {
   background: var(--ws-wash);
-  color: var(--ws-midnight) !important;
+  color: var(--ws-link) !important;
 }
 
 .quarto-title-block {
@@ -84,7 +88,7 @@ a {
 
 blockquote {
   background: var(--ws-wash);
-  border-left: 3px solid var(--ws-blue);
+  border-left: 3px solid var(--ws-link);
   border-radius: 0;
 }
 
@@ -95,14 +99,14 @@ pre, div.sourceCode {
   box-shadow: none;
 }
 
-code { font-family: "Fira Code", monospace; }
+code { font-family: "JetBrains Mono", monospace; }
 code:not(.sourceCode) {
   background: var(--ws-wash);
-  color: var(--ws-midnight);
+  color: var(--ws-blue);
   border-radius: 0.15rem;
 }
 
 .page-footer, footer.footer {
-  background: var(--ws-bg);
+  background: var(--ws-white);
   border-top: 1px solid var(--ws-line);
 }
