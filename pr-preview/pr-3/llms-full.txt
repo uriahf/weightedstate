@@ -50,6 +50,14 @@ single-event survival and competing-risk settings.
 
 ## Installation
 
+With [uv](https://docs.astral.sh/uv/):
+
+```bash
+uv add weightedstate
+```
+
+Alternatively, with pip:
+
 ```bash
 pip install weightedstate
 ```

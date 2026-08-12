@@ -9,6 +9,14 @@ The package provides one core function, [weighted_aalen_johansen](reference/weig
 
 # Installation
 
+With [uv](https://docs.astral.sh/uv/):
+
+``` bash
+uv add weightedstate
+```
+
+Alternatively, with pip:
+
 ``` bash
 pip install weightedstate
 ```
