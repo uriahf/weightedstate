@@ -9,7 +9,7 @@ logo:
   light: assets/logo.png
   dark: assets/logo.png
   alt: weightedstate
-  height: 44px
+  height: 68px
   show_title: false
 
 hero: false
