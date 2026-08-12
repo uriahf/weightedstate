@@ -5,6 +5,15 @@ user_guide: user_guide
 homepage: user_guide
 site_url: https://uriahf.github.io/weightedstate/
 
+logo:
+  light: assets/logo.png
+  dark: assets/logo.png
+  alt: weightedstate
+  height: 44px
+  show_title: false
+
+hero: false
+
 site:
   css: classic.css
 
