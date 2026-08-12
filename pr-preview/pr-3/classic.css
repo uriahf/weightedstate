@@ -33,6 +33,14 @@ a {
   background: var(--ws-bg) !important;
   border-bottom: 1px solid var(--ws-line);
   box-shadow: none;
+  min-height: 84px;
+}
+
+.navbar-logo {
+  height: 68px !important;
+  max-height: 68px !important;
+  width: 68px !important;
+  object-fit: contain;
 }
 
 .navbar-brand, .navbar .nav-link, .navbar .navbar-title {
