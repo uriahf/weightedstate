@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="How weightedstate relates to weighted Aalen–Johansen implementations.">
 
-<title>Get started – weightedstate | weightedstate</title>
+<title>Package comparisons – weightedstate | weightedstate</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -64,24 +65,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./user-guide/estimation-framework.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-bf476c94c8758bc321fd5fd3b984c438.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../user-guide/literature.html" rel="next">
+<link href="../user-guide/estimation-framework.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-bf476c94c8758bc321fd5fd3b984c438.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -109,9 +111,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
-
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <script>document.head.appendChild(Object.assign(document.createElement('link'),{rel:'stylesheet',href:(document.querySelector('meta[name="quarto:offset"]')||{content:''}).content+'termshow.css'}));</script>
 <script>document.head.appendChild(Object.assign(document.createElement('link'),{rel:'stylesheet',href:(document.querySelector('meta[name="quarto:offset"]')||{content:''}).content+'gd-lightbox.css'}));</script>
@@ -120,45 +119,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script>(function(){var s=document.createElement('script');var m=document.querySelector('meta[name="quarto:offset"]');s.src=(m?m.content:'')+'gd-lightbox-compare.js';s.defer=true;document.head.appendChild(s);})();</script>
 <script>document.head.appendChild(Object.assign(document.createElement('link'),{rel:'stylesheet',href:(document.querySelector('meta[name="quarto:offset"]')||{content:''}).content+'gd-lightbox-annotate.css'}));</script>
 <script>(function(){var s=document.createElement('script');var m=document.querySelector('meta[name="quarto:offset"]');s.src=(m?m.content:'')+'gd-lightbox-annotate.js';s.defer=true;document.head.appendChild(s);})();</script>
-<script src="theme-init.js"></script>
+<script src="../theme-init.js"></script>
 
 
-<link rel="stylesheet" href="classic.css">
-  <link rel="alternate" type="text/markdown" href="index.md">
-  <link rel="canonical" href="https://uriahf.github.io/weightedstate/">
-  <meta name="description" content="The package provides one core function, weighted_aalen_johansen, for single-event survival and competing-risk settings.">
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareSourceCode",
-  "name": "weightedstate",
-  "description": "A package for weighted event prediction.",
-  "url": "https://uriahf.github.io/weightedstate",
-  "documentation": "https://uriahf.github.io/weightedstate",
-  "programmingLanguage": {
-    "@type": "ComputerLanguage",
-    "name": "Python"
-  }
-}
-</script>
+<link rel="stylesheet" href="../classic.css">
+  <link rel="alternate" type="text/markdown" href="package-comparisons.md">
+  <link rel="canonical" href="https://uriahf.github.io/weightedstate/user-guide/package-comparisons.html">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Get started – weightedstate | weightedstate">
-  <meta property="og:description" content="The package provides one core function, weighted_aalen_johansen, for single-event survival and competing-risk settings.">
-  <meta property="og:url" content="https://uriahf.github.io/weightedstate">
+  <meta property="og:title" content="Package comparisons – weightedstate | weightedstate">
+  <meta property="og:description" content="How weightedstate relates to weighted Aalen–Johansen implementations.">
+  <meta property="og:url" content="https://uriahf.github.io/weightedstate/user-guide/package-comparisons.html">
   <meta property="og:site_name" content="weightedstate">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Get started – weightedstate | weightedstate">
-  <meta name="twitter:description" content="The package provides one core function, weighted_aalen_johansen, for single-event survival and competing-risk settings.">
+  <meta name="twitter:title" content="Package comparisons – weightedstate | weightedstate">
+  <meta name="twitter:description" content="How weightedstate relates to weighted Aalen–Johansen implementations.">
 </head>
 
-<body class="nav-sidebar floating nav-fixed fullcontent quarto-light">
+<body class="nav-sidebar floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">weightedstate</span>
     </a>
   </div>
@@ -169,7 +153,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./reference/index.html"> 
+    <a class="nav-link" href="../reference/index.html"> 
 <span class="menu-text">Reference</span></a>
   </li>  
 </ul>
@@ -190,7 +174,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <h1 class="quarto-secondary-nav-title no-breadcrumbs">Get started</h1>
+        <h1 class="quarto-secondary-nav-title no-breadcrumbs">Package comparisons</h1>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -204,25 +188,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Get started</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./user-guide/estimation-framework.html" class="sidebar-item-text sidebar-link">
+  <a href="../user-guide/estimation-framework.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Estimation framework</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./user-guide/package-comparisons.html" class="sidebar-item-text sidebar-link">
+  <a href="../user-guide/package-comparisons.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Package comparisons</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./user-guide/literature.html" class="sidebar-item-text sidebar-link">
+  <a href="../user-guide/literature.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Literature and references</span></a>
   </div>
 </li>
@@ -231,15 +215,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#at-a-glance" id="toc-at-a-glance" class="nav-link active" data-scroll-target="#at-a-glance">At a glance</a></li>
+  <li><a href="#the-same-weighted-competing-risk-data" id="toc-the-same-weighted-competing-risk-data" class="nav-link" data-scroll-target="#the-same-weighted-competing-risk-data">The same weighted competing-risk data</a></li>
+  <li><a href="#which-should-you-use" id="toc-which-should-you-use" class="nav-link" data-scroll-target="#which-should-you-use">Which should you use?</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Get started</h1>
+<h1 class="title d-none d-lg-block">Package comparisons</h1>
 </div>
 
+<div>
+  <div class="description">
+    How weightedstate relates to weighted Aalen–Johansen implementations.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -254,82 +254,156 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><img src="assets/package-mark.png" class="homepage-logo img-fluid" alt="weightedstate logo"></p>
-<p><code>weightedstate</code> implements a weighted Aalen–Johansen estimator for time-to-event data. In the single-event setting, this estimator reduces to a weighted Kaplan–Meier estimator.</p>
-<p>The package provides one core function, <a href="reference/weighted_aalen_johansen.html#weightedstate.weighted_aalen_johansen" class="gdls-link gdls-code">weighted_aalen_johansen</a>, for single-event survival and competing-risk settings.</p>
-<section id="installation" class="level1">
-<h1>Installation</h1>
-<p>With <a href="https://docs.astral.sh/uv/">uv</a>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> add weightedstate</span></code></pre></div>
-<p>Alternatively, with pip:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install weightedstate</span></code></pre></div>
+<p><code>weightedstate</code> is a deliberately small, Polars-native implementation of the weighted Aalen–Johansen estimator. Both lifelines in Python and survival in R cover a broader survival-analysis workflow.</p>
+<section id="at-a-glance" class="level1">
+<h1>At a glance</h1>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th><code>weightedstate</code></th>
+<th>lifelines</th>
+<th>R <code>survival</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Data interface</td>
+<td>Polars Series/DataFrame</td>
+<td>pandas/array-like</td>
+<td>R vectors and formulas</td>
+</tr>
+<tr class="even">
+<td>Case weights</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td>Competing risks</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>Output emphasis</td>
+<td>All state probabilities together</td>
+<td>CIF for one selected event per fit</td>
+<td>Full survival or multi-state fit</td>
+</tr>
+<tr class="odd">
+<td>Tied event times</td>
+<td>Handled directly</td>
+<td>Automatically jittered</td>
+<td>Handled directly</td>
+</tr>
+<tr class="even">
+<td>Variance / confidence intervals</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td>Left truncation</td>
+<td>No</td>
+<td>Yes, via <code>entry</code></td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>Natural fit</td>
+<td>Focused Polars estimation</td>
+<td>General Python survival analysis</td>
+<td>Full-featured R survival analysis</td>
+</tr>
+</tbody>
+</table>
+<p>The table describes the documented public interfaces, not a ranking. The broader packages provide inference and modeling features that are intentionally outside <code>weightedstate</code>’s current scope.</p>
 </section>
-<section id="single-event-example" class="level1">
-<h1>Single-event example</h1>
-<div id="89a69c87" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> weightedstate <span class="im">import</span> weighted_aalen_johansen</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> pl.Series([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>reals <span class="op">=</span> pl.Series([<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>])</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>weights <span class="op">=</span> pl.Series([<span class="fl">0.5</span>, <span class="fl">1.5</span>, <span class="fl">0.8</span>, <span class="fl">1.2</span>, <span class="fl">0.9</span>])</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>weighted_aalen_johansen(times, reals, weights)</span></code></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<div><style>
-.dataframe > thead > tr,
-.dataframe > tbody > tr {
-  text-align: right;
-  white-space: pre-wrap;
-}
-</style>
-<small>shape: (5, 15)</small><table class="dataframe table table-sm table-striped small"><thead><tr><th>times</th><th>count_0</th><th>count_1</th><th>count_2</th><th>events_at_times</th><th>at_risk</th><th>csh_1</th><th>csh_2</th><th>conditional_survival</th><th>overall_survival</th><th>previous_overall_survival</th><th>transition_prob_1</th><th>transition_prob_2</th><th>cif_1</th><th>cif_2</th></tr><tr><td>i64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>1</td><td>0.0</td><td>0.5</td><td>0.0</td><td>0.5</td><td>4.9</td><td>0.102041</td><td>0.0</td><td>0.897959</td><td>0.897959</td><td>1.0</td><td>0.102041</td><td>0.0</td><td>0.102041</td><td>0.0</td></tr><tr><td>2</td><td>1.5</td><td>0.0</td><td>0.0</td><td>1.5</td><td>4.4</td><td>0.0</td><td>0.0</td><td>1.0</td><td>0.897959</td><td>0.897959</td><td>0.0</td><td>0.0</td><td>0.102041</td><td>0.0</td></tr><tr><td>3</td><td>0.0</td><td>0.8</td><td>0.0</td><td>0.8</td><td>2.9</td><td>0.275862</td><td>0.0</td><td>0.724138</td><td>0.650246</td><td>0.897959</td><td>0.247713</td><td>0.0</td><td>0.349754</td><td>0.0</td></tr><tr><td>4</td><td>0.0</td><td>1.2</td><td>0.0</td><td>1.2</td><td>2.1</td><td>0.571429</td><td>0.0</td><td>0.428571</td><td>0.278677</td><td>0.650246</td><td>0.371569</td><td>0.0</td><td>0.721323</td><td>0.0</td></tr><tr><td>5</td><td>0.9</td><td>0.0</td><td>0.0</td><td>0.9</td><td>0.9</td><td>0.0</td><td>0.0</td><td>1.0</td><td>0.278677</td><td>0.278677</td><td>0.0</td><td>0.0</td><td>0.721323</td><td>0.0</td></tr></tbody></table></div>
+<section id="the-same-weighted-competing-risk-data" class="level1">
+<h1>The same weighted competing-risk data</h1>
+<p>Each tab estimates cumulative state probabilities from the same observations and case weights.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">weightedstate (Python 🐍)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">lifelines (Python 🐍)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">survival (R 🔵)</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> weightedstate <span class="im">import</span> weighted_aalen_johansen</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> pl.Series([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>events <span class="op">=</span> pl.Series([<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">0</span>])</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>weights <span class="op">=</span> pl.Series([<span class="fl">0.5</span>, <span class="fl">1.5</span>, <span class="fl">0.8</span>, <span class="fl">1.2</span>, <span class="fl">0.9</span>])</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>weighted_aalen_johansen(</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    times,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    events,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    weights,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>The result contains the estimated probabilities for the initial state and both absorbing states in one Polars DataFrame.</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> lifelines <span class="im">import</span> AalenJohansenFitter</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"time"</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>],</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">"event"</span>: [<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">0</span>],</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">"weight"</span>: [<span class="fl">0.5</span>, <span class="fl">1.5</span>, <span class="fl">0.8</span>, <span class="fl">1.2</span>, <span class="fl">0.9</span>],</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>event_1 <span class="op">=</span> AalenJohansenFitter()</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>event_1.fit(</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    data[<span class="st">"time"</span>],</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    data[<span class="st">"event"</span>],</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    event_of_interest<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    weights<span class="op">=</span>data[<span class="st">"weight"</span>],</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>event_2 <span class="op">=</span> AalenJohansenFitter()</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>event_2.fit(</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    data[<span class="st">"time"</span>],</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    data[<span class="st">"event"</span>],</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    event_of_interest<span class="op">=</span><span class="dv">2</span>,</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    weights<span class="op">=</span>data[<span class="st">"weight"</span>],</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>lifelines fits one event of interest at a time and provides variance estimates and confidence intervals. Its documented implementation automatically jitters tied event times.</p>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(survival)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">time =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>),</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">event =</span> <span class="fu">factor</span>(</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">0</span>),</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"censor"</span>, <span class="st">"event"</span>, <span class="st">"competing"</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">weight =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">1.5</span>, <span class="fl">0.8</span>, <span class="fl">1.2</span>, <span class="fl">0.9</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">survfit</span>(</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Surv</span>(time, event) <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> data,</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">weights =</span> weight</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code></pre></div>
+<p>R’s <code>survival</code> package returns a full multi-state fit and includes extensive support for inference, formulas, delayed entry, and more complex event histories.</p>
 </div>
 </div>
-</section>
-<section id="competing-risk-example" class="level1">
-<h1>Competing-risk example</h1>
-<div id="3bb36906" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> pl.Series([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>reals <span class="op">=</span> pl.Series([<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">0</span>])</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>weights <span class="op">=</span> pl.Series([<span class="fl">0.5</span>, <span class="fl">1.5</span>, <span class="fl">0.8</span>, <span class="fl">1.2</span>, <span class="fl">0.9</span>])</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>weighted_aalen_johansen(times, reals, weights)</span></code></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
-<div><style>
-.dataframe > thead > tr,
-.dataframe > tbody > tr {
-  text-align: right;
-  white-space: pre-wrap;
-}
-</style>
-<small>shape: (5, 15)</small><table class="dataframe table table-sm table-striped small"><thead><tr><th>times</th><th>count_0</th><th>count_1</th><th>count_2</th><th>events_at_times</th><th>at_risk</th><th>csh_1</th><th>csh_2</th><th>conditional_survival</th><th>overall_survival</th><th>previous_overall_survival</th><th>transition_prob_1</th><th>transition_prob_2</th><th>cif_1</th><th>cif_2</th></tr><tr><td>i64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td><td>f64</td></tr></thead><tbody><tr><td>1</td><td>0.0</td><td>0.5</td><td>0.0</td><td>0.5</td><td>4.9</td><td>0.102041</td><td>0.0</td><td>0.897959</td><td>0.897959</td><td>1.0</td><td>0.102041</td><td>0.0</td><td>0.102041</td><td>0.0</td></tr><tr><td>2</td><td>1.5</td><td>0.0</td><td>0.0</td><td>1.5</td><td>4.4</td><td>0.0</td><td>0.0</td><td>1.0</td><td>0.897959</td><td>0.897959</td><td>0.0</td><td>0.0</td><td>0.102041</td><td>0.0</td></tr><tr><td>3</td><td>0.0</td><td>0.8</td><td>0.0</td><td>0.8</td><td>2.9</td><td>0.275862</td><td>0.0</td><td>0.724138</td><td>0.650246</td><td>0.897959</td><td>0.247713</td><td>0.0</td><td>0.349754</td><td>0.0</td></tr><tr><td>4</td><td>0.0</td><td>0.0</td><td>1.2</td><td>1.2</td><td>2.1</td><td>0.0</td><td>0.571429</td><td>0.428571</td><td>0.278677</td><td>0.650246</td><td>0.0</td><td>0.371569</td><td>0.349754</td><td>0.371569</td></tr><tr><td>5</td><td>0.9</td><td>0.0</td><td>0.0</td><td>0.9</td><td>0.9</td><td>0.0</td><td>0.0</td><td>1.0</td><td>0.278677</td><td>0.278677</td><td>0.0</td><td>0.0</td><td>0.349754</td><td>0.371569</td></tr></tbody></table></div>
-</div>
-</div>
-<div class="gd-meta-sidebar">
-<section id="links" class="level3">
-<h3 class="anchored" data-anchor-id="links">Links</h3>
-<p><a href="https://pypi.org/project/weightedstate/">View on PyPI<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -0.05em; margin-left: 0em; margin-top: 0.1em;" viewbox="0 0 24 24"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a><br></p>
-</section>
-<section id="ai-agents" class="level3">
-<h3 class="anchored" data-anchor-id="ai-agents">AI / Agents</h3>
-<p><a href="skills.html">Skills<svg class="gd-sparkle" xmlns="http://www.w3.org/2000/svg" width="0.85em" height="0.85em" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -0.1em; margin-left: 0.25em;"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.582a.5.5 0 0 1 0 .963L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path><path d="M20 3v4"></path><path d="M22 5h-4"></path></svg></a><br> <a href="llms.txt">llms.txt</a><br> <a href="llms-full.txt">llms-full.txt</a><br></p>
-</section>
-<section id="developers" class="level3">
-<h3 class="anchored" data-anchor-id="developers">Developers</h3>
-<div>
-<span>
-<p>
-<strong style="padding-bottom: 4px;">Uriah Finkel</strong>
-</p>
-</span><span style="margin-top: -0.15em; display: block;"><a href="mailto:ufinkel@gmail.com" title="Email"><i class="bi bi-envelope-fill"></i></a></span>
 </div>
 </section>
-<section id="meta" class="level3">
-<h3 class="anchored" data-anchor-id="meta">Meta</h3>
-<p><strong>Requires:</strong> Python <code>&gt;=3.9</code><br> <a href="package-info.html">Package Info</a></p>
+<section id="which-should-you-use" class="level1">
+<h1>Which should you use?</h1>
+<p>Use <code>weightedstate</code> for a compact Python/Polars workflow when the weighted state probabilities themselves are the target. Use lifelines when you want a broader Python survival toolkit, built-in confidence intervals, plotting, or left truncation. Use R’s <code>survival</code> package when you need its mature multi-state framework and inferential machinery.</p>
 </section>
-</div>
+<section id="references" class="level1">
+<h1>References</h1>
+<ul>
+<li><a href="https://lifelines.readthedocs.io/en/latest/fitters/univariate/AalenJohansenFitter.html">lifelines <code>AalenJohansenFitter</code> documentation</a></li>
+<li><a href="https://stat.ethz.ch/R-manual/R-devel/library/survival/html/survfit.formula.html">R <code>survival</code> documentation</a></li>
+</ul>
 
 
 </section>
@@ -675,10 +749,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../user-guide/estimation-framework.html" class="pagination-link" aria-label="Estimation framework">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Estimation framework</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./user-guide/estimation-framework.html" class="pagination-link" aria-label="Estimation framework">
-        <span class="nav-page-text">Estimation framework</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../user-guide/literature.html" class="pagination-link" aria-label="Literature and references">
+        <span class="nav-page-text">Literature and references</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -690,23 +767,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </footer>
-<script src="github-widget.js"></script>
-<script src="sidebar-wrap.js"></script>
+<script src="../github-widget.js"></script>
+<script src="../copy-page.js"></script>
+<script src="../sidebar-wrap.js"></script>
 <script>(function(){var s=document.createElement('script');var m=document.querySelector('meta[name="quarto:offset"]');s.src=(m?m.content:'')+'sidebar-float.js';document.body.appendChild(s);})();</script>
-<script src="sidebar-filter.js"></script>
-<script src="dark-mode-toggle.js"></script>
-<script src="back-to-top.js"></script>
+<script src="../sidebar-filter.js"></script>
+<script src="../dark-mode-toggle.js"></script>
+<script src="../back-to-top.js"></script>
 <script>(function(){var s=document.createElement('script');var m=document.querySelector('meta[name="quarto:offset"]');s.src=(m?m.content:'')+'on-this-page.js';document.body.appendChild(s);})();</script>
-<script src="keyboard-nav.js"></script>
-<script src="copy-code.js"></script>
-<script src="details.js"></script>
-<script src="mermaid-renderer.js"></script>
-<script src="tooltips.js"></script>
+<script src="../keyboard-nav.js"></script>
+<script src="../copy-code.js"></script>
+<script src="../details.js"></script>
+<script src="../mermaid-renderer.js"></script>
+<script src="../tooltips.js"></script>
 <script>(function(){var s=document.createElement('script');var m=document.querySelector('meta[name="quarto:offset"]');s.src=(m?m.content:'')+'color-swatch.js';document.body.appendChild(s);})();</script>
-<script src="responsive-tables.js"></script>
+<script src="../responsive-tables.js"></script>
 <script>(function(){var s=document.createElement('script');var m=document.querySelector('meta[name="quarto:offset"]');s.src=(m?m.content:'')+'video-embed.js';document.body.appendChild(s);})();</script>
 <script>(function(){var s=document.createElement('script');var m=document.querySelector('meta[name="quarto:offset"]');s.src=(m?m.content:'')+'termshow.js';document.body.appendChild(s);})();</script>
-<script src="navbar-widgets.js"></script>
+<script src="../navbar-widgets.js"></script>
 
 
 
