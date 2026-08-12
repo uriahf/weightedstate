@@ -1,15 +1,24 @@
 # Get started
 
-`weightedstate` implements a weighted Aalen-Johansen estimator for time-to-event data. In the single-event setting, this estimator reduces to a weighted Kaplan-Meier estimator.
-
-The package provides one core function, [weighted_aalen_johansen](reference/weighted_aalen_johansen.html#weightedstate.weighted_aalen_johansen), for single-event survival and competing-risk settings.
+\`\`\`{=html} \# pragma: no cover
 
 
-# Installation
+<img src="assets/logo.png" class="gd-hero-logo" style="max-height:128px" alt="Logo" />
 
-``` bash
-pip install weightedstate
-```
+A package for weighted event prediction.
+
+
+    `weightedstate` implements a weighted Aalen-Johansen estimator for
+    time-to-event data. In the single-event setting, this estimator reduces to a
+    weighted Kaplan-Meier estimator.
+
+    The package provides one core function, `weighted_aalen_johansen`, for
+    single-event survival and competing-risk settings.
+
+    ## Installation
+
+    ```bash
+    pip install weightedstate
 
 
 # Single-event example

@@ -131,7 +131,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="classic.css">
   <link rel="alternate" type="text/markdown" href="index.md">
   <link rel="canonical" href="https://uriahf.github.io/weightedstate/">
-  <meta name="description" content="The package provides one core function, weighted_aalen_johansen, for single-event survival and competing-risk settings.">
+  <meta name="description" content="A package for weighted event prediction.">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -148,12 +148,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </script>
   <meta property="og:type" content="website">
   <meta property="og:title" content="Get started – weightedstate | weightedstate">
-  <meta property="og:description" content="The package provides one core function, weighted_aalen_johansen, for single-event survival and competing-risk settings.">
+  <meta property="og:description" content="A package for weighted event prediction.">
   <meta property="og:url" content="https://uriahf.github.io/weightedstate">
   <meta property="og:site_name" content="weightedstate">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Get started – weightedstate | weightedstate">
-  <meta name="twitter:description" content="The package provides one core function, weighted_aalen_johansen, for single-event survival and competing-risk settings.">
+  <meta name="twitter:description" content="A package for weighted event prediction.">
 </head>
 
 <body class="nav-sidebar floating nav-fixed fullcontent quarto-light">
@@ -254,15 +254,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><code>weightedstate</code> implements a weighted Aalen–Johansen estimator for time-to-event data. In the single-event setting, this estimator reduces to a weighted Kaplan–Meier estimator.</p>
-<p>The package provides one core function, <a href="reference/weighted_aalen_johansen.html#weightedstate.weighted_aalen_johansen" class="gdls-link gdls-code">weighted_aalen_johansen</a>, for single-event survival and competing-risk settings.</p>
-<section id="installation" class="level1">
-<h1>Installation</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install weightedstate</span></code></pre></div>
-</section>
+```{=html} # pragma: no cover
+<div class="gd-hero">
+<img src="assets/logo.png" alt="Logo" class="gd-hero-logo" style="max-height:128px">
+<p class="gd-hero-tagline">
+A package for weighted event prediction.
+</p>
+</div>
+<pre><code>
+`weightedstate` implements a weighted Aalen–Johansen estimator for
+time-to-event data. In the single-event setting, this estimator reduces to a
+weighted Kaplan–Meier estimator.
+
+The package provides one core function, `weighted_aalen_johansen`, for
+single-event survival and competing-risk settings.
+
+## Installation
+
+```bash
+pip install weightedstate</code></pre>
 <section id="single-event-example" class="level1">
 <h1>Single-event example</h1>
-<div id="9180a2bb" class="cell" data-execution_count="1">
+<div id="b2093732" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> weightedstate <span class="im">import</span> weighted_aalen_johansen</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -285,7 +298,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="competing-risk-example" class="level1">
 <h1>Competing-risk example</h1>
-<div id="6049cb70" class="cell" data-execution_count="2">
+<div id="2052955f" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> pl.Series([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>reals <span class="op">=</span> pl.Series([<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">0</span>])</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>weights <span class="op">=</span> pl.Series([<span class="fl">0.5</span>, <span class="fl">1.5</span>, <span class="fl">0.8</span>, <span class="fl">1.2</span>, <span class="fl">0.9</span>])</span>
