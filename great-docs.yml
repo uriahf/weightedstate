@@ -9,13 +9,7 @@ logo: false
 
 favicon: assets/logo.png
 
-hero:
-  enabled: true
-  logo: assets/logo.png
-  logo_height: 128px
-  name: false
-  tagline: false
-  badges: false
+hero: false
 
 site:
   css: classic.css
