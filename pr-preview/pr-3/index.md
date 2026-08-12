@@ -1,5 +1,7 @@
 # Get started
 
+<img src="../assets/logo.png" class="homepage-logo img-fluid" alt="weightedstate logo" />
+
 `weightedstate` implements a weighted Aalen-Johansen estimator for time-to-event data. In the single-event setting, this estimator reduces to a weighted Kaplan-Meier estimator.
 
 The package provides one core function, [weighted_aalen_johansen](reference/weighted_aalen_johansen.html#weightedstate.weighted_aalen_johansen), for single-event survival and competing-risk settings.

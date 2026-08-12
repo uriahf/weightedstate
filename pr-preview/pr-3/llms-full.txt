@@ -39,6 +39,8 @@ This is the User Guide documentation for the package.
 
 ### Get started
 
+![](../assets/logo.png){.homepage-logo fig-alt="weightedstate logo"}
+
 `weightedstate` implements a weighted Aalen–Johansen estimator for
 time-to-event data. In the single-event setting, this estimator reduces to a
 weighted Kaplan–Meier estimator.
