@@ -339,7 +339,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    events,</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    weights,</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<p>The result contains the estimated probabilities for the initial state and both absorbing states in one Polars DataFrame.</p>
+<p><strong>Output</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Time</th>
+<th style="text-align: right;">Overall survival</th>
+<th style="text-align: right;">CIF 1</th>
+<th style="text-align: right;">CIF 2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.897959</td>
+<td style="text-align: right;">0.102041</td>
+<td style="text-align: right;">0.000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.897959</td>
+<td style="text-align: right;">0.102041</td>
+<td style="text-align: right;">0.000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.650246</td>
+<td style="text-align: right;">0.349754</td>
+<td style="text-align: right;">0.000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.278677</td>
+<td style="text-align: right;">0.349754</td>
+<td style="text-align: right;">0.371569</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.278677</td>
+<td style="text-align: right;">0.349754</td>
+<td style="text-align: right;">0.371569</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -368,7 +410,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    event_of_interest<span class="op">=</span><span class="dv">2</span>,</span>
 <span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    weights<span class="op">=</span>data[<span class="st">"weight"</span>],</span>
 <span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<p>lifelines fits one event of interest at a time and provides variance estimates and confidence intervals. Its documented implementation automatically jitters tied event times.</p>
+<p><strong>Output</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Time</th>
+<th style="text-align: right;">CIF for event 1</th>
+<th style="text-align: right;">CIF for event 2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.102041</td>
+<td style="text-align: right;">0.000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.102041</td>
+<td style="text-align: right;">0.000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.349754</td>
+<td style="text-align: right;">0.000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.349754</td>
+<td style="text-align: right;">0.371569</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.349754</td>
+<td style="text-align: right;">0.371569</td>
+</tr>
+</tbody>
+</table>
+<p>The initial-state probability is <code>1 - CIF 1 - CIF 2</code>. lifelines fits one event of interest at a time and also provides variance estimates and confidence intervals.</p>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(survival)</span>
@@ -390,7 +469,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code></pre></div>
-<p>R’s <code>survival</code> package returns a full multi-state fit and includes extensive support for inference, formulas, delayed entry, and more complex event histories.</p>
+<p><strong>Output</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Time</th>
+<th style="text-align: right;">Initial state</th>
+<th style="text-align: right;">Event 1</th>
+<th style="text-align: right;">Event 2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.897959</td>
+<td style="text-align: right;">0.102041</td>
+<td style="text-align: right;">0.000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.897959</td>
+<td style="text-align: right;">0.102041</td>
+<td style="text-align: right;">0.000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.650246</td>
+<td style="text-align: right;">0.349754</td>
+<td style="text-align: right;">0.000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.278677</td>
+<td style="text-align: right;">0.349754</td>
+<td style="text-align: right;">0.371569</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.278677</td>
+<td style="text-align: right;">0.349754</td>
+<td style="text-align: right;">0.371569</td>
+</tr>
+</tbody>
+</table>
+<p>R’s <code>survival</code> package returns the full multi-state fit and includes extensive support for inference, formulas, delayed entry, and more complex event histories.</p>
 </div>
 </div>
 </div>

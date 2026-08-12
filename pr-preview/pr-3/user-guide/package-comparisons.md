@@ -44,7 +44,15 @@ weighted_aalen_johansen(
 )
 ```
 
-The result contains the estimated probabilities for the initial state and both absorbing states in one Polars DataFrame.
+**Output**
+
+| Time | Overall survival |    CIF 1 |    CIF 2 |
+|-----:|-----------------:|---------:|---------:|
+|    1 |         0.897959 | 0.102041 | 0.000000 |
+|    2 |         0.897959 | 0.102041 | 0.000000 |
+|    3 |         0.650246 | 0.349754 | 0.000000 |
+|    4 |         0.278677 | 0.349754 | 0.371569 |
+|    5 |         0.278677 | 0.349754 | 0.371569 |
 
 
 ``` python
@@ -76,7 +84,17 @@ event_2.fit(
 )
 ```
 
-lifelines fits one event of interest at a time and provides variance estimates and confidence intervals. Its documented implementation automatically jitters tied event times.
+**Output**
+
+| Time | CIF for event 1 | CIF for event 2 |
+|-----:|----------------:|----------------:|
+|    1 |        0.102041 |        0.000000 |
+|    2 |        0.102041 |        0.000000 |
+|    3 |        0.349754 |        0.000000 |
+|    4 |        0.349754 |        0.371569 |
+|    5 |        0.349754 |        0.371569 |
+
+The initial-state probability is `1 - CIF 1 - CIF 2`. lifelines fits one event of interest at a time and also provides variance estimates and confidence intervals.
 
 
 ``` r
@@ -101,7 +119,17 @@ fit <- survfit(
 summary(fit)
 ```
 
-R's `survival` package returns a full multi-state fit and includes extensive support for inference, formulas, delayed entry, and more complex event histories.
+**Output**
+
+| Time | Initial state |  Event 1 |  Event 2 |
+|-----:|--------------:|---------:|---------:|
+|    1 |      0.897959 | 0.102041 | 0.000000 |
+|    2 |      0.897959 | 0.102041 | 0.000000 |
+|    3 |      0.650246 | 0.349754 | 0.000000 |
+|    4 |      0.278677 | 0.349754 | 0.371569 |
+|    5 |      0.278677 | 0.349754 | 0.371569 |
+
+R's `survival` package returns the full multi-state fit and includes extensive support for inference, formulas, delayed entry, and more complex event histories.
 
 
 # Visible comparison output
