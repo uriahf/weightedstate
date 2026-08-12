@@ -1,97 +1,92 @@
-@import url("https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Open+Sans:wght@400;600;700&display=swap");
 
 :root {
-  --state-bg: #f4f9fb;
-  --state-surface: #ffffff;
-  --state-soft: #e3f0f4;
-  --state-primary: #243f4d;
-  --state-accent: #367a91;
-  --state-border: #bfd5dd;
-  --state-text: #24333a;
-  --state-muted: #617780;
-  --state-shadow: 0 10px 28px rgba(36, 63, 77, 0.08);
+  --ws-bg: #f7fbfc;
+  --ws-ink: #3a4750;
+  --ws-midnight: #1a1d23;
+  --ws-blue: #527f91;
+  --ws-wash: #e8f4f8;
+  --ws-line: #c7d9e1;
 }
 
 body {
-  background: var(--state-bg);
-  color: var(--state-text);
-  font-family: "Commissioner", system-ui, sans-serif;
+  background: var(--ws-bg);
+  color: var(--ws-ink);
+  font-family: "Open Sans", system-ui, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6,
 .navbar-brand, .quarto-title-block .title, .sidebar-title {
-  color: var(--state-primary);
+  color: var(--ws-midnight);
   font-family: "Fraunces", Georgia, serif;
   font-weight: 700;
-  letter-spacing: -0.015em;
+  line-height: 1.2;
 }
 
 a {
-  color: var(--state-accent);
-  text-decoration-color: rgba(54, 122, 145, 0.35);
+  color: var(--ws-blue);
+  text-decoration-color: rgba(82, 127, 145, 0.35);
   text-underline-offset: 0.14em;
 }
 
-a:hover, a:focus-visible { color: var(--state-primary); }
-
 .navbar, .navbar-dark, .navbar-light {
-  background: rgba(244, 249, 251, 0.96) !important;
-  border-bottom: 1px solid var(--state-border);
-  box-shadow: 0 5px 18px rgba(36, 63, 77, 0.05);
-  backdrop-filter: blur(12px);
+  background: var(--ws-bg) !important;
+  border-bottom: 1px solid var(--ws-line);
+  box-shadow: none;
 }
 
 .navbar-brand, .navbar .nav-link, .navbar .navbar-title {
-  color: var(--state-primary) !important;
-}
-
-.navbar .nav-link:hover, .navbar .nav-link.active {
-  color: var(--state-accent) !important;
+  color: var(--ws-midnight) !important;
 }
 
 #quarto-sidebar, .sidebar, .quarto-secondary-nav {
-  background: var(--state-bg);
-  border-color: var(--state-border);
+  background: var(--ws-bg);
+  border-color: var(--ws-line);
 }
 
-.sidebar-item a, .sidebar-navigation a { border-radius: 0.55rem; }
+.sidebar-item a, .sidebar-navigation a { border-radius: 0.2rem; }
 .sidebar-item a:hover, .sidebar-item a.active,
 .sidebar-navigation a:hover, .sidebar-navigation a.active {
-  background: var(--state-soft);
-  color: var(--state-accent) !important;
+  background: var(--ws-wash);
+  color: var(--ws-midnight) !important;
 }
 
-.quarto-title-block, .gd-group-card, .gd-api-card, .card, .callout {
-  background: var(--state-surface);
-  border-color: var(--state-border) !important;
-  border-radius: 0.9rem;
-  box-shadow: var(--state-shadow);
+.quarto-title-block {
+  background: transparent;
+  border: 0 !important;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
 }
 
-.quarto-title-block { padding: 1.25rem 1.4rem; }
+.gd-group-card, .gd-api-card, .card, .callout {
+  background: #fff;
+  border: 1px solid var(--ws-line) !important;
+  border-radius: 0.35rem;
+  box-shadow: none;
+}
 
 blockquote {
-  background: var(--state-soft);
-  border-left: 4px solid var(--state-accent);
-  border-radius: 0 0.7rem 0.7rem 0;
-  padding: 0.85rem 1.1rem;
+  background: var(--ws-wash);
+  border-left: 3px solid var(--ws-blue);
+  border-radius: 0;
 }
 
 pre, div.sourceCode {
-  background: #fbfdfe;
-  border-color: var(--state-border) !important;
-  border-radius: 0.75rem;
+  background: #fff;
+  border: 1px solid var(--ws-line) !important;
+  border-radius: 0.3rem;
+  box-shadow: none;
 }
 
-code { font-family: "JetBrains Mono", monospace; }
+code { font-family: "Fira Code", monospace; }
 code:not(.sourceCode) {
-  background: var(--state-soft);
-  color: #295d70;
-  border-radius: 0.35rem;
+  background: var(--ws-wash);
+  color: var(--ws-midnight);
+  border-radius: 0.15rem;
 }
 
 .page-footer, footer.footer {
-  background: var(--state-surface);
-  border-top: 1px solid var(--state-border);
-  color: var(--state-muted);
+  background: var(--ws-bg);
+  border-top: 1px solid var(--ws-line);
 }
