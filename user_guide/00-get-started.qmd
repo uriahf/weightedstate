@@ -1,0 +1,39 @@
+---
+title: Get started
+---
+
+`weightedstate` implements a weighted Aalen–Johansen estimator for
+time-to-event data. In the single-event setting, this estimator reduces to a
+weighted Kaplan–Meier estimator.
+
+The package provides one core function, `weighted_aalen_johansen`, for
+single-event survival and competing-risk settings.
+
+## Installation
+
+```bash
+pip install weightedstate
+```
+
+## Single-event example
+
+```{python}
+import polars as pl
+from weightedstate import weighted_aalen_johansen
+
+times = pl.Series([1, 2, 3, 4, 5])
+reals = pl.Series([1, 0, 1, 1, 0])
+weights = pl.Series([0.5, 1.5, 0.8, 1.2, 0.9])
+
+weighted_aalen_johansen(times, reals, weights)
+```
+
+## Competing-risk example
+
+```{python}
+times = pl.Series([1, 2, 3, 4, 5])
+reals = pl.Series([1, 0, 1, 2, 0])
+weights = pl.Series([0.5, 1.5, 0.8, 1.2, 0.9])
+
+weighted_aalen_johansen(times, reals, weights)
+```
