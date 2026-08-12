@@ -1,6 +1,6 @@
 # Get started
 
-<img src="../assets/logo.png" class="homepage-logo img-fluid" alt="weightedstate logo" />
+<img src="assets/package-mark.png" class="homepage-logo img-fluid" alt="weightedstate logo" />
 
 `weightedstate` implements a weighted Aalen-Johansen estimator for time-to-event data. In the single-event setting, this estimator reduces to a weighted Kaplan-Meier estimator.
 
