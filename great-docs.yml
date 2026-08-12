@@ -11,6 +11,8 @@ favicon: assets/package-mark.png
 
 hero: false
 
+freeze: false
+
 site:
   css: classic.css
 
