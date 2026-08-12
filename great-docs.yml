@@ -6,7 +6,7 @@ homepage: user_guide
 site_url: https://uriahf.github.io/weightedstate/
 
 site:
-  css: site.css
+  css: classic.css
 
 source:
   enabled: true
