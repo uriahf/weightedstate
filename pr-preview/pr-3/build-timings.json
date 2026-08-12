@@ -1,0 +1,31 @@
+{
+  "build_time": "2026-08-12T10:33:24Z",
+  "total_seconds": 5.656,
+  "pages": [
+    {
+      "page": "index.qmd",
+      "seconds": 2.759,
+      "frozen": false
+    },
+    {
+      "page": "skills.qmd",
+      "seconds": 1.319,
+      "frozen": false
+    },
+    {
+      "page": "package-info.qmd",
+      "seconds": 0.763,
+      "frozen": false
+    },
+    {
+      "page": "reference/weighted_aalen_johansen.qmd",
+      "seconds": 0.423,
+      "frozen": false
+    },
+    {
+      "page": "reference/index.qmd",
+      "seconds": 0.392,
+      "frozen": false
+    }
+  ]
+}

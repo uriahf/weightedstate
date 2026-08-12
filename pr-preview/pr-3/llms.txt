@@ -1,0 +1,9 @@
+# weightedstate
+
+> A package for weighted event prediction.
+
+## Docs
+
+### API Reference
+
+- [weighted_aalen_johansen](https://uriahf.github.io/weightedstate/reference/weighted_aalen_johansen.html): Calculate a weighted Aalen-Johansen estimate
