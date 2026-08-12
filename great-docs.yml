@@ -1,0 +1,17 @@
+display_name: weightedstate
+parser: numpy
+repo: https://github.com/uriahf/weightedstate
+user_guide: user_guide
+homepage: user_guide
+site_url: https://uriahf.github.io/weightedstate/
+
+source:
+  enabled: true
+  branch: master
+  placement: usage
+
+reference:
+  - title: Weighted estimation
+    desc: Estimate weighted survival and competing-risk probabilities.
+    contents:
+      - weighted_aalen_johansen
