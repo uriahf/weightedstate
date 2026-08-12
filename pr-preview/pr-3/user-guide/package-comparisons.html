@@ -222,6 +222,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#at-a-glance" id="toc-at-a-glance" class="nav-link active" data-scroll-target="#at-a-glance">At a glance</a></li>
   <li><a href="#the-same-weighted-competing-risk-data" id="toc-the-same-weighted-competing-risk-data" class="nav-link" data-scroll-target="#the-same-weighted-competing-risk-data">The same weighted competing-risk data</a></li>
+  <li><a href="#visible-comparison-output" id="toc-visible-comparison-output" class="nav-link" data-scroll-target="#visible-comparison-output">Visible comparison output</a></li>
   <li><a href="#which-should-you-use" id="toc-which-should-you-use" class="nav-link" data-scroll-target="#which-should-you-use">Which should you use?</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
@@ -393,6 +394,53 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+</section>
+<section id="visible-comparison-output" class="level1">
+<h1>Visible comparison output</h1>
+<p>All three implementations target the following weighted state probabilities. lifelines exposes the two cumulative-incidence columns through two fitted objects; <code>weightedstate</code> and R <code>survival</code> expose the states together.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: right;">Time</th>
+<th style="text-align: right;">Initial state</th>
+<th style="text-align: right;">Event 1</th>
+<th style="text-align: right;">Event 2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.897959</td>
+<td style="text-align: right;">0.102041</td>
+<td style="text-align: right;">0.000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.897959</td>
+<td style="text-align: right;">0.102041</td>
+<td style="text-align: right;">0.000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.650246</td>
+<td style="text-align: right;">0.349754</td>
+<td style="text-align: right;">0.000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.278677</td>
+<td style="text-align: right;">0.349754</td>
+<td style="text-align: right;">0.371569</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.278677</td>
+<td style="text-align: right;">0.349754</td>
+<td style="text-align: right;">0.371569</td>
+</tr>
+</tbody>
+</table>
+<p>Each row sums to 1. In the raw <code>weightedstate</code> result, these are <code>overall_survival</code>, <code>cif_1</code>, and <code>cif_2</code>; the result also retains the weighted risk sets and hazard increments used to obtain them.</p>
 </section>
 <section id="which-should-you-use" class="level1">
 <h1>Which should you use?</h1>

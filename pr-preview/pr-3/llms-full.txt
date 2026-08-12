@@ -222,6 +222,24 @@ histories.
 
 :::
 
+## Visible comparison output
+
+All three implementations target the following weighted state probabilities.
+lifelines exposes the two cumulative-incidence columns through two fitted
+objects; `weightedstate` and R `survival` expose the states together.
+
+| Time | Initial state | Event 1 | Event 2 |
+|---:|---:|---:|---:|
+| 1 | 0.897959 | 0.102041 | 0.000000 |
+| 2 | 0.897959 | 0.102041 | 0.000000 |
+| 3 | 0.650246 | 0.349754 | 0.000000 |
+| 4 | 0.278677 | 0.349754 | 0.371569 |
+| 5 | 0.278677 | 0.349754 | 0.371569 |
+
+Each row sums to 1. In the raw `weightedstate` result, these are
+`overall_survival`, `cif_1`, and `cif_2`; the result also retains the
+weighted risk sets and hazard increments used to obtain them.
+
 ## Which should you use?
 
 Use `weightedstate` for a compact Python/Polars workflow when the weighted
