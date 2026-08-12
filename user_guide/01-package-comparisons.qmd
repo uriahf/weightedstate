@@ -1,0 +1,130 @@
+---
+title: Package comparisons
+description: How weightedstate relates to weighted Aalen–Johansen implementations.
+---
+
+`weightedstate` is a deliberately small, Polars-native implementation of the
+weighted Aalen–Johansen estimator. Both lifelines in Python and survival in R
+cover a broader survival-analysis workflow.
+
+## At a glance
+
+| | `weightedstate` | lifelines | R `survival` |
+|---|---|---|---|
+| Data interface | Polars Series/DataFrame | pandas/array-like | R vectors and formulas |
+| Case weights | Yes | Yes | Yes |
+| Competing risks | Yes | Yes | Yes |
+| Output emphasis | All state probabilities together | CIF for one selected event per fit | Full survival or multi-state fit |
+| Tied event times | Handled directly | Automatically jittered | Handled directly |
+| Variance / confidence intervals | No | Yes | Yes |
+| Left truncation | No | Yes, via `entry` | Yes |
+| Natural fit | Focused Polars estimation | General Python survival analysis | Full-featured R survival analysis |
+
+The table describes the documented public interfaces, not a ranking. The
+broader packages provide inference and modeling features that are intentionally
+outside `weightedstate`'s current scope.
+
+## The same weighted competing-risk data
+
+Each tab estimates cumulative state probabilities from the same observations
+and case weights.
+
+::: {.panel-tabset}
+
+### weightedstate (Python 🐍)
+
+```python
+import polars as pl
+from weightedstate import weighted_aalen_johansen
+
+times = pl.Series([1, 2, 3, 4, 5])
+events = pl.Series([1, 0, 1, 2, 0])
+weights = pl.Series([0.5, 1.5, 0.8, 1.2, 0.9])
+
+weighted_aalen_johansen(
+    times,
+    events,
+    weights,
+)
+```
+
+The result contains the estimated probabilities for the initial state and both
+absorbing states in one Polars DataFrame.
+
+### lifelines (Python 🐍)
+
+```python
+import pandas as pd
+from lifelines import AalenJohansenFitter
+
+data = pd.DataFrame(
+    {
+        "time": [1, 2, 3, 4, 5],
+        "event": [1, 0, 1, 2, 0],
+        "weight": [0.5, 1.5, 0.8, 1.2, 0.9],
+    }
+)
+
+event_1 = AalenJohansenFitter()
+event_1.fit(
+    data["time"],
+    data["event"],
+    event_of_interest=1,
+    weights=data["weight"],
+)
+
+event_2 = AalenJohansenFitter()
+event_2.fit(
+    data["time"],
+    data["event"],
+    event_of_interest=2,
+    weights=data["weight"],
+)
+```
+
+lifelines fits one event of interest at a time and provides variance estimates
+and confidence intervals. Its documented implementation automatically jitters
+tied event times.
+
+### survival (R 🔵)
+
+```r
+library(survival)
+
+data <- data.frame(
+  time = c(1, 2, 3, 4, 5),
+  event = factor(
+    c(1, 0, 1, 2, 0),
+    levels = c(0, 1, 2),
+    labels = c("censor", "event", "competing")
+  ),
+  weight = c(0.5, 1.5, 0.8, 1.2, 0.9)
+)
+
+fit <- survfit(
+  Surv(time, event) ~ 1,
+  data = data,
+  weights = weight
+)
+
+summary(fit)
+```
+
+R's `survival` package returns a full multi-state fit and includes extensive
+support for inference, formulas, delayed entry, and more complex event
+histories.
+
+:::
+
+## Which should you use?
+
+Use `weightedstate` for a compact Python/Polars workflow when the weighted
+state probabilities themselves are the target. Use lifelines when you want a
+broader Python survival toolkit, built-in confidence intervals, plotting, or
+left truncation. Use R's `survival` package when you need its mature
+multi-state framework and inferential machinery.
+
+## References
+
+- [lifelines `AalenJohansenFitter` documentation](https://lifelines.readthedocs.io/en/latest/fitters/univariate/AalenJohansenFitter.html)
+- [R `survival` documentation](https://stat.ethz.ch/R-manual/R-devel/library/survival/html/survfit.formula.html)
