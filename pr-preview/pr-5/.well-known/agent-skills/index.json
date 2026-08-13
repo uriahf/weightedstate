@@ -1,0 +1,11 @@
+{
+  "skills": [
+    {
+      "name": "weightedstate",
+      "description": "A package for weighted event prediction. Use when writing Python code that uses the weightedstate package.",
+      "files": [
+        "SKILL.md"
+      ]
+    }
+  ]
+}
