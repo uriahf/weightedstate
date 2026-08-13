@@ -1,0 +1,46 @@
+{
+  "build_time": "2026-08-13T11:14:04Z",
+  "total_seconds": 13.131,
+  "pages": [
+    {
+      "page": "index.qmd",
+      "seconds": 7.357,
+      "frozen": false
+    },
+    {
+      "page": "user-guide/package-comparisons.qmd",
+      "seconds": 2.711,
+      "frozen": false
+    },
+    {
+      "page": "package-info.qmd",
+      "seconds": 0.845,
+      "frozen": false
+    },
+    {
+      "page": "reference/weighted_aalen_johansen.qmd",
+      "seconds": 0.466,
+      "frozen": false
+    },
+    {
+      "page": "skills.qmd",
+      "seconds": 0.457,
+      "frozen": false
+    },
+    {
+      "page": "user-guide/estimation-framework.qmd",
+      "seconds": 0.437,
+      "frozen": false
+    },
+    {
+      "page": "user-guide/literature.qmd",
+      "seconds": 0.431,
+      "frozen": false
+    },
+    {
+      "page": "reference/index.qmd",
+      "seconds": 0.427,
+      "frozen": false
+    }
+  ]
+}

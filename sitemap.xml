@@ -1,31 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://uriahf.github.io/weightedstate/references.html</loc>
-    <lastmod>2025-12-24T17:30:18.789Z</lastmod>
+    <loc>https://uriahf.github.io/weightedstate/</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://uriahf.github.io/weightedstate/literature.html</loc>
-    <lastmod>2025-12-24T17:30:18.787Z</lastmod>
+    <loc>https://uriahf.github.io/weightedstate/user-guide/estimation-framework.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://uriahf.github.io/weightedstate/reference/survival.weighted_aalen_johansen.html</loc>
-    <lastmod>2025-12-24T17:30:38.934Z</lastmod>
+    <loc>https://uriahf.github.io/weightedstate/user-guide/literature.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://uriahf.github.io/weightedstate/index.html</loc>
-    <lastmod>2025-12-24T17:30:18.787Z</lastmod>
+    <loc>https://uriahf.github.io/weightedstate/user-guide/package-comparisons.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://uriahf.github.io/weightedstate/reference/index.html</loc>
-    <lastmod>2025-12-24T17:30:38.917Z</lastmod>
+    <loc>https://uriahf.github.io/weightedstate/reference/</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://uriahf.github.io/weightedstate/estimation.html</loc>
-    <lastmod>2025-12-24T17:30:18.786Z</lastmod>
+    <loc>https://uriahf.github.io/weightedstate/reference/weighted_aalen_johansen.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://uriahf.github.io/weightedstate/examples.html</loc>
-    <lastmod>2025-12-24T17:30:18.787Z</lastmod>
+    <loc>https://uriahf.github.io/weightedstate/package-info.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://uriahf.github.io/weightedstate/skills.html</loc>
+    <lastmod>2026-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>
