@@ -1,5 +1,4 @@
 display_name: weightedstate
-package: weightedstate
 parser: numpy
 repo: https://github.com/uriahf/weightedstate
 user_guide: user_guide
@@ -14,40 +13,16 @@ hero: false
 
 freeze: false
 
-github_style: widget
-dark_mode_toggle: true
-back_to_top: true
-keyboard_nav: true
-markdown_pages: true
-
 site:
-  css:
-    - assets/uriah-docs/docs.css
-
-accent_color:
-  light: "#2f6f8f"
-  dark: "#83bdd6"
-
-nav_icons:
-  navbar:
-    User Guide: book-open
-    API Reference: code-2
-  sidebar:
-    User Guide: book-open
-    API Reference: code-2
+  css: classic.css
 
 source:
   enabled: true
   branch: master
-  path: src/weightedstate
   placement: usage
 
 reference:
-  title: API Reference
-  desc: Functions for weighted survival and competing-risk estimation.
-  sections:
-    - title: Weighted estimation
-      desc: Estimate weighted state occupation probabilities.
-      contents:
-        - weighted_aalen_johansen
-
+  - title: Weighted estimation
+    desc: Estimate weighted survival and competing-risk probabilities.
+    contents:
+      - weighted_aalen_johansen
