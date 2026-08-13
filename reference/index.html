@@ -84,10 +84,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../theme-init.js"></script>
 
 
-<link rel="stylesheet" href="../classic.css">
+<link rel="stylesheet" href="../docs.css">
   <link rel="alternate" type="text/markdown" href="index.md">
   <link rel="canonical" href="https://uriahf.github.io/weightedstate/reference/">
-  <meta name="description" content="Estimate weighted survival and competing-risk probabilities.">
+  <meta name="description" content="Functions for weighted survival and competing-risk estimation.">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -104,12 +104,12 @@ ul.task-list li input[type="checkbox"] {
 </script>
   <meta property="og:type" content="website">
   <meta property="og:title" content="API Reference – weightedstate | weightedstate">
-  <meta property="og:description" content="Estimate weighted survival and competing-risk probabilities.">
+  <meta property="og:description" content="Functions for weighted survival and competing-risk estimation.">
   <meta property="og:url" content="https://uriahf.github.io/weightedstate/reference/">
   <meta property="og:site_name" content="weightedstate">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="API Reference – weightedstate | weightedstate">
-  <meta name="twitter:description" content="Estimate weighted survival and competing-risk probabilities.">
+  <meta name="twitter:description" content="Functions for weighted survival and competing-risk estimation.">
 </head>
 
 <body class="gd-ref-sidebar nav-sidebar floating nav-fixed doc-reference quarto-light">
@@ -131,7 +131,7 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link active" href="../reference/index.html" aria-current="page"> 
-<span class="menu-text">Reference</span></a>
+<span class="menu-text">API Reference</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -219,10 +219,13 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="doc-description">
+<p>Functions for weighted survival and competing-risk estimation.</p>
+</div>
 <section id="weighted-estimation" class="level2 doc-group">
 <h2 class="doc-group">Weighted estimation</h2>
 <div class="doc-description">
-<p>Estimate weighted survival and competing-risk probabilities.</p>
+<p>Estimate weighted state occupation probabilities.</p>
 </div>
 <dl>
 <dt><a href="../reference/weighted_aalen_johansen.html#weightedstate.weighted_aalen_johansen" class="doc-function doc-label doc-label-function">weighted_aalen_johansen()</a></dt>
@@ -598,6 +601,107 @@ ul.task-list li input[type="checkbox"] {
 <script>(function(){var s=document.createElement('script');var m=document.querySelector('meta[name="quarto:offset"]');s.src=(m?m.content:'')+'video-embed.js';document.body.appendChild(s);})();</script>
 <script>(function(){var s=document.createElement('script');var m=document.querySelector('meta[name="quarto:offset"]');s.src=(m?m.content:'')+'termshow.js';document.body.appendChild(s);})();</script>
 <script src="../navbar-widgets.js"></script>
+<script id="gd-nav-icons-data" type="application/json">{"navbar":{"User Guide":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"gd-nav-icon\" aria-hidden=\"true\"><path d=\"M12 7v14\"/><path d=\"M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z\"/></svg>","API Reference":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"gd-nav-icon\" aria-hidden=\"true\"><path d=\"m18 16 4-4-4-4\"/><path d=\"m6 8-4 4 4 4\"/><path d=\"m14.5 4-5 16\"/></svg>"},"sidebar":{"User Guide":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"gd-nav-icon\" aria-hidden=\"true\"><path d=\"M12 7v14\"/><path d=\"M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z\"/></svg>","API Reference":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"gd-nav-icon\" aria-hidden=\"true\"><path d=\"m18 16 4-4-4-4\"/><path d=\"m6 8-4 4 4 4\"/><path d=\"m14.5 4-5 16\"/></svg>"}}</script>
+<script>/**
+ * Navigation Icons for Great Docs
+ *
+ * Reads a JSON icon map from a <script id="gd-nav-icons-data"> element
+ * and prepends inline SVG icons to matching navbar and sidebar entries.
+ *
+ * The icon map is emitted by the Python build pipeline and has the shape:
+ *   { "navbar": { "Label": "<svg .../>", ... },
+ *     "sidebar": { "Label": "<svg .../>", ... } }
+ */
+(function () {
+  "use strict";
+
+  /**
+   * Inject an SVG icon before the text of a navigation link.
+   *
+   * @param {Element} menuText - The .menu-text span element.
+   * @param {string} svgHtml - The inline SVG markup to prepend.
+   */
+  function injectIcon(menuText, svgHtml) {
+    // Avoid double-injection on re-runs
+    if (menuText.querySelector(".gd-nav-icon")) return;
+
+    // Create a temporary container to parse the SVG string
+    var wrapper = document.createElement("span");
+    wrapper.innerHTML = svgHtml;
+    var svg = wrapper.firstElementChild;
+    if (!svg) return;
+
+    menuText.insertBefore(svg, menuText.firstChild);
+  }
+
+  /**
+   * Process a set of navigation items, matching by their text content.
+   *
+   * @param {string} selector - CSS selector to find .menu-text elements.
+   * @param {Object} mapping - Label -> SVG HTML mapping.
+   */
+  function processNavItems(selector, mapping) {
+    if (!mapping || typeof mapping !== "object") return;
+
+    var items = document.querySelectorAll(selector);
+    items.forEach(function (el) {
+      // Get the trimmed text content (may include child node text)
+      var text = el.textContent.trim();
+      if (mapping[text]) {
+        injectIcon(el, mapping[text]);
+      }
+    });
+  }
+
+  function run() {
+    var dataEl = document.getElementById("gd-nav-icons-data");
+    if (!dataEl) return;
+
+    var iconMap;
+    try {
+      iconMap = JSON.parse(dataEl.textContent);
+    } catch (_) {
+      return;
+    }
+    if (!iconMap) return;
+
+    // Process navbar items: look for .navbar .menu-text spans
+    processNavItems(".navbar .nav-link > .menu-text", iconMap.navbar || {});
+
+    // Process sidebar items: look for .sidebar .menu-text spans
+    // This covers sidebar section titles and individual items
+    processNavItems(
+      "#quarto-sidebar .sidebar-item .menu-text",
+      iconMap.sidebar || {}
+    );
+
+    // Also handle sidebar section headers (the collapsible section titles)
+    processNavItems(
+      "#quarto-sidebar .sidebar-item-section .sidebar-item-text",
+      iconMap.sidebar || {}
+    );
+  }
+
+  // Run after DOM is ready so that other scripts (e.g. sidebar-wrap.js)
+  // that also use DOMContentLoaded have already processed the sidebar.
+  // Listeners fire in registration order, and sidebar-wrap.js is loaded
+  // earlier in include-after-body, so its handler runs first.
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", run);
+  } else {
+    run();
+  }
+})();
+</script>
+<style>
+/* Great Docs: accent_color overrides */
+:root, html.quarto-light, :root[data-bs-theme='light'] {
+    --gd-accent: #2f6f8f;
+}
+html.quarto-dark, :root[data-bs-theme='dark'] {
+    --gd-accent: #83bdd6;
+}
+</style>
 
 
 

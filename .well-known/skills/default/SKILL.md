@@ -19,7 +19,7 @@ pip install weightedstate
 
 ### Weighted estimation
 
-Estimate weighted survival and competing-risk probabilities.
+Estimate weighted state occupation probabilities.
 
 - `weighted_aalen_johansen`: Calculate a weighted Aalen-Johansen estimate
 

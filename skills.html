@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="theme-init.js"></script>
 
 
-<link rel="stylesheet" href="classic.css">
+<link rel="stylesheet" href="docs.css">
   <link rel="canonical" href="https://uriahf.github.io/weightedstate/skills.html">
   <meta name="description" content="A skill is a package of structured files that teaches an AI coding agent how to work with a specific tool or framework. The skill below was generated...">
   <meta name="robots" content="noindex, nofollow">
@@ -152,7 +152,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="./reference/index.html"> 
-<span class="menu-text">Reference</span></a>
+<span class="menu-text">API Reference</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -247,7 +247,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">### Weighted estimation</span></span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>Estimate weighted survival and competing-risk probabilities.</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>Estimate weighted state occupation probabilities.</span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`weighted_aalen_johansen`</span>: Calculate a weighted Aalen-Johansen estimate</span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
@@ -625,6 +625,107 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script>(function(){var s=document.createElement('script');var m=document.querySelector('meta[name="quarto:offset"]');s.src=(m?m.content:'')+'video-embed.js';document.body.appendChild(s);})();</script>
 <script>(function(){var s=document.createElement('script');var m=document.querySelector('meta[name="quarto:offset"]');s.src=(m?m.content:'')+'termshow.js';document.body.appendChild(s);})();</script>
 <script src="navbar-widgets.js"></script>
+<script id="gd-nav-icons-data" type="application/json">{"navbar":{"User Guide":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"gd-nav-icon\" aria-hidden=\"true\"><path d=\"M12 7v14\"/><path d=\"M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z\"/></svg>","API Reference":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"gd-nav-icon\" aria-hidden=\"true\"><path d=\"m18 16 4-4-4-4\"/><path d=\"m6 8-4 4 4 4\"/><path d=\"m14.5 4-5 16\"/></svg>"},"sidebar":{"User Guide":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"gd-nav-icon\" aria-hidden=\"true\"><path d=\"M12 7v14\"/><path d=\"M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z\"/></svg>","API Reference":"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"gd-nav-icon\" aria-hidden=\"true\"><path d=\"m18 16 4-4-4-4\"/><path d=\"m6 8-4 4 4 4\"/><path d=\"m14.5 4-5 16\"/></svg>"}}</script>
+<script>/**
+ * Navigation Icons for Great Docs
+ *
+ * Reads a JSON icon map from a <script id="gd-nav-icons-data"> element
+ * and prepends inline SVG icons to matching navbar and sidebar entries.
+ *
+ * The icon map is emitted by the Python build pipeline and has the shape:
+ *   { "navbar": { "Label": "<svg .../>", ... },
+ *     "sidebar": { "Label": "<svg .../>", ... } }
+ */
+(function () {
+  "use strict";
+
+  /**
+   * Inject an SVG icon before the text of a navigation link.
+   *
+   * @param {Element} menuText - The .menu-text span element.
+   * @param {string} svgHtml - The inline SVG markup to prepend.
+   */
+  function injectIcon(menuText, svgHtml) {
+    // Avoid double-injection on re-runs
+    if (menuText.querySelector(".gd-nav-icon")) return;
+
+    // Create a temporary container to parse the SVG string
+    var wrapper = document.createElement("span");
+    wrapper.innerHTML = svgHtml;
+    var svg = wrapper.firstElementChild;
+    if (!svg) return;
+
+    menuText.insertBefore(svg, menuText.firstChild);
+  }
+
+  /**
+   * Process a set of navigation items, matching by their text content.
+   *
+   * @param {string} selector - CSS selector to find .menu-text elements.
+   * @param {Object} mapping - Label -> SVG HTML mapping.
+   */
+  function processNavItems(selector, mapping) {
+    if (!mapping || typeof mapping !== "object") return;
+
+    var items = document.querySelectorAll(selector);
+    items.forEach(function (el) {
+      // Get the trimmed text content (may include child node text)
+      var text = el.textContent.trim();
+      if (mapping[text]) {
+        injectIcon(el, mapping[text]);
+      }
+    });
+  }
+
+  function run() {
+    var dataEl = document.getElementById("gd-nav-icons-data");
+    if (!dataEl) return;
+
+    var iconMap;
+    try {
+      iconMap = JSON.parse(dataEl.textContent);
+    } catch (_) {
+      return;
+    }
+    if (!iconMap) return;
+
+    // Process navbar items: look for .navbar .menu-text spans
+    processNavItems(".navbar .nav-link > .menu-text", iconMap.navbar || {});
+
+    // Process sidebar items: look for .sidebar .menu-text spans
+    // This covers sidebar section titles and individual items
+    processNavItems(
+      "#quarto-sidebar .sidebar-item .menu-text",
+      iconMap.sidebar || {}
+    );
+
+    // Also handle sidebar section headers (the collapsible section titles)
+    processNavItems(
+      "#quarto-sidebar .sidebar-item-section .sidebar-item-text",
+      iconMap.sidebar || {}
+    );
+  }
+
+  // Run after DOM is ready so that other scripts (e.g. sidebar-wrap.js)
+  // that also use DOMContentLoaded have already processed the sidebar.
+  // Listeners fire in registration order, and sidebar-wrap.js is loaded
+  // earlier in include-after-body, so its handler runs first.
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", run);
+  } else {
+    run();
+  }
+})();
+</script>
+<style>
+/* Great Docs: accent_color overrides */
+:root, html.quarto-light, :root[data-bs-theme='light'] {
+    --gd-accent: #2f6f8f;
+}
+html.quarto-dark, :root[data-bs-theme='dark'] {
+    --gd-accent: #83bdd6;
+}
+</style>
 
 
 

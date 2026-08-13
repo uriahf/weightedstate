@@ -5,7 +5,7 @@ This is the API documentation for the weightedstate library.
 
 ## Weighted estimation
 
-Estimate weighted survival and competing-risk probabilities.
+Estimate weighted state occupation probabilities.
 
 
 weighted_aalen_johansen(times: polars.series.series.Series, reals: polars.series.series.Series, weights: polars.series.series.Series) -> polars.dataframe.frame.DataFrame
